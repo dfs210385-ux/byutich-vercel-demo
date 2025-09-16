@@ -30,6 +30,8 @@ export default function Home() {
           <BeforeAfter
             before="/demo/before.jpg"
             after="/demo/after.jpg"
+            beforeAlt="Фото лица — До"
+            afterAlt="Фото лица — После"
           />
           <ul className="list-disc list-inside mt-6 text-gray-700">
             <li>Классическая шторка (как у QOVES)</li>
