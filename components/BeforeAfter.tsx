@@ -4,7 +4,16 @@ export default function BeforeAfter({
   before = "/demo/before.jpg",
   after = "/demo/after.jpg",
   ratio = 16 / 9,
-}: { before?: string; after?: string; ratio?: number }) {
+  // ✨ новое: подписи для доступности (необязательные)
+  beforeAlt = "Фото лица — До",
+  afterAlt = "Фото лица — После",
+}: {
+  before?: string;
+  after?: string;
+  ratio?: number;
+  beforeAlt?: string;
+  afterAlt?: string;
+}) {
   const [pos, setPos] = useState(50);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const dragging = useRef(false);
@@ -21,12 +30,14 @@ export default function BeforeAfter({
 
     const down = (e: MouseEvent | TouchEvent) => {
       dragging.current = true;
-      const x = e instanceof TouchEvent ? e.touches[0].clientX : (e as MouseEvent).clientX;
+      const x =
+        e instanceof TouchEvent ? e.touches[0].clientX : (e as MouseEvent).clientX;
       setPos(pct(x));
     };
     const move = (e: MouseEvent | TouchEvent) => {
       if (!dragging.current) return;
-      const x = e instanceof TouchEvent ? e.touches[0].clientX : (e as MouseEvent).clientX;
+      const x =
+        e instanceof TouchEvent ? e.touches[0].clientX : (e as MouseEvent).clientX;
       setPos(pct(x));
     };
     const up = () => (dragging.current = false);
@@ -56,9 +67,20 @@ export default function BeforeAfter({
       aria-label="Слайдер сравнения до/после"
       role="region"
     >
-      <img src={before} alt="До" className="absolute inset-0 h-full w-full select-none object-cover pointer-events-none" />
+      {/* было alt="До" → теперь берём из пропсов */}
+      <img
+        src={before}
+        alt={beforeAlt}
+        className="absolute inset-0 h-full w-full select-none object-cover pointer-events-none"
+      />
+
       <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
-        <img src={after} alt="После" className="absolute inset-0 h-full w-full select-none object-cover pointer-events-none" />
+        {/* было alt="После" → теперь берём из пропсов */}
+        <img
+          src={after}
+          alt={afterAlt}
+          className="absolute inset-0 h-full w-full select-none object-cover pointer-events-none"
+        />
       </div>
 
       {/* линия */}
@@ -79,8 +101,12 @@ export default function BeforeAfter({
       />
 
       {/* метки */}
-      <span className="absolute left-3 top-3 rounded-lg bg-black/60 px-2 py-1 text-xs text-white">До</span>
-      <span className="absolute right-3 top-3 rounded-lg bg-black/60 px-2 py-1 text-xs text-white">После</span>
+      <span className="absolute left-3 top-3 rounded-lg bg-black/60 px-2 py-1 text-xs text-white">
+        До
+      </span>
+      <span className="absolute right-3 top-3 rounded-lg bg-black/60 px-2 py-1 text-xs text-white">
+        После
+      </span>
     </div>
   );
 }
