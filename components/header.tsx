@@ -1,4 +1,3 @@
-// components/Header.tsx
 import Link from "next/link";
 import Logo from "./Logo";
 
@@ -11,9 +10,9 @@ export default function Header() {
         </Link>
 
         <nav className="flex items-center gap-6 text-sm">
-          <Link href="/login"  className="hover:text-brand-primary transition-colors">Войти</Link>
+          <Link href="/login" className="hover:text-brand-primary transition-colors">Войти</Link>
           <Link href="/upload" className="hover:text-brand-primary transition-colors">Загрузка</Link>
-          <Link href="/history"className="hover:text-brand-primary transition-colors">История</Link>
+          <Link href="/history" className="hover:text-brand-primary transition-colors">История</Link>
         </nav>
       </div>
     </header>
