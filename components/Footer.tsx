@@ -1,4 +1,3 @@
-// components/Footer.tsx
 import Link from "next/link";
 import Logo from "./Logo";
 
@@ -14,17 +13,17 @@ export default function Footer() {
         <div className="text-sm">
           <div className="font-semibold mb-3">Компания</div>
           <ul className="space-y-2">
-            <li><Link href="/" className="hover:text-brand.primary">О проекте</Link></li>
-            <li><Link href="/contacts" className="hover:text-brand.primary">Контакты</Link></li>
-            <li><Link href="/careers" className="hover:text-brand.primary">Карьера</Link></li>
+            <li><Link href="/" className="hover:text-brand-primary">О проекте</Link></li>
+            <li><Link href="/contacts" className="hover:text-brand-primary">Контакты</Link></li>
+            <li><Link href="/careers" className="hover:text-brand-primary">Карьера</Link></li>
           </ul>
         </div>
 
         <div className="text-sm">
           <div className="font-semibold mb-3">Документы</div>
           <ul className="space-y-2">
-            <li><Link href="/privacy" className="hover:text-brand.primary">Политика конфиденциальности</Link></li>
-            <li><Link href="/terms" className="hover:text-brand.primary">Пользовательское соглашение</Link></li>
+            <li><Link href="/privacy" className="hover:text-brand-primary">Политика конфиденциальности</Link></li>
+            <li><Link href="/terms" className="hover:text-brand-primary">Пользовательское соглашение</Link></li>
           </ul>
         </div>
       </div>
