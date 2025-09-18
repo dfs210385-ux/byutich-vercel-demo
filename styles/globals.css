@@ -3,14 +3,12 @@ cat > styles/globals.css << 'EOF'
 @tailwind components;
 @tailwind utilities;
 
-/* Базовые стили страницы */
+/* Гладкая типографика и фон */
 html, body, #__next { height: 100%; }
 body { @apply bg-gray-50 text-gray-900; }
-
-/* Ссылки по умолчанию — брендовый акцент и лёгкий hover */
 a { @apply text-brand-primary hover:opacity-80 transition-colors; }
 
-/* ---- Тонкая кастомизация range (ползунок шторки) ---- */
+/* Тонкая кастомизация range (ползунок шторки) */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
